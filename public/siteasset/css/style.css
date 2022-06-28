@@ -1,0 +1,50 @@
+a{
+    color:unset;
+    text-decoration: none;
+}
+a:hover{
+    color:unset;
+}
+body{
+    background-color: #fafafa;
+}
+/* Start Nav */
+.image-holder{
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+/* End Nav */
+/* Start Footer */
+footer{
+    background-color: #1C1C1E;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    /* height: 300px; */
+}
+footer a{
+    background-color: #818a91;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 25px;
+    transition: 0.5s ease;
+    color: #000;
+    margin-right: 10px;
+}
+footer a:hover{
+    border-radius: 20%;
+    background-color: #fff;
+}
+footer p{
+    color: #ddd;
+    padding-top: 30px;
+}
+/* End Footer */
+
+/* Start Category Section */
+.category-section{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+/* End Category Section */
