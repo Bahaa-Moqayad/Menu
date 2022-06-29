@@ -5,6 +5,14 @@
         <a class="btn btn-dark" href="{{ route('admin.categories.create') }}">Add New Category</a>
     </div>
 
+    <form action="{{ route('admin.categories.index') }}" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search..." value="{{ request()->keyword }}"
+                name="keyword">
+            <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -37,4 +45,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $categories->links() }}
 @stop

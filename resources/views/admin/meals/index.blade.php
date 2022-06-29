@@ -5,6 +5,14 @@
         <a class="btn btn-dark" href="{{ route('admin.meals.create') }}">Add New Meal</a>
     </div>
 
+    <form action="{{ route('admin.meals.index') }}" method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search..." value="{{ request()->keyword }}"
+                name="keyword">
+            <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
             {{ session('msg') }}
@@ -49,4 +57,5 @@
             </tr>
         @endforeach
     </table>
+    {{ $meals->links() }}
 @stop

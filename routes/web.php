@@ -11,6 +11,8 @@ use App\Http\Controllers\CategoryController;
 
 
 Route::get('/',[SiteController::class,'index'])->name('site.index');
+Route::get('/category/{id}', [SiteController::class, 'category'])->name('site.category');
+
 
 Route::prefix('/admin')->name('admin.')->middleware(['auth','is_admin'])->group(function(){
     Route::get('/',[AdminController::class,'index'])->name('index');
@@ -18,6 +20,7 @@ Route::prefix('/admin')->name('admin.')->middleware(['auth','is_admin'])->group(
     Route::resource('meals',MealController::class);
     Route::resource('users',UserController::class);
 });
+
 
 Auth::routes();
 

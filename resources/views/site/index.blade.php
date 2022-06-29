@@ -4,20 +4,22 @@
     <section class="category-section">
         <div class="container">
             <h1 class="text-center">
-                All Categories
+                الأصناف
             </h1>
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
-                    <div class="card">
-                        <img src="{{ asset('siteasset/img/Logo.png') }}" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                @foreach ($categories as $cat)
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
+                        <div class="card">
+                            <img src=" {{ $cat->image && file_exists(public_path('uploads/images/categories/' . $cat->image)) ? asset('uploads/images/categories/' . $cat->image) : asset('siteasset/img/Image-Not-Available.png') }}"
+                                class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $cat->name }}</h5>
+
+                                <a href="{{ route('site.category', $cat->id) }}" class="btn btn-primary">الوجبات</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -15,7 +15,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        if(request()->has('keyword')){
+            $categories = Category::where('name','like','%'.request()->keyword.'%')->paginate(5);
+        }else{
+            $categories = Category::all();
+        }
+
         return view('admin.categories.index', compact('categories'));
     }
 

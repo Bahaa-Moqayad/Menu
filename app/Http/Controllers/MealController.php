@@ -17,7 +17,13 @@ class MealController extends Controller
      */
     public function index()
     {
-        $meals = Meal::with('category')->paginate(10);
+        if(request()->has('keyword')){
+            $meals = Meal::with('category')->where('name', 'like', '%'.request()->keyword.'%')->paginate(5);
+        }else{
+
+            $meals = Meal::with('category')->paginate(10);
+        }
+
         return view('admin.meals.index',compact('meals'));
     }
 
